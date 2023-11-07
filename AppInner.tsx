@@ -4,14 +4,16 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useState } from "react";
 import { Text, View } from "react-native";
 import Login from "./src/screen/authentication/login/login.screen";
-import SignUp from "./src/screen/authentication/signUp/signUp.screen";
+import test from "./src/screen/authentication/test/test.screen";
+import KakaoLogin from "./src/screen/authentication/login/login.kakaoLogin";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 export type RootStackParamList = {
   Login: any;
-  SignUp: any;
+  test: any;
+  KakaoLogin: any;
 };
 
 export default function AppInner() {
@@ -24,12 +26,17 @@ export default function AppInner() {
             <Stack.Screen
               name="Login"
               component={Login}
-              options={{ title: "로그인" }}
+              options={{ title: "로그인", headerShown: false }}
             />
             <Stack.Screen
-              name="SignUp"
-              component={SignUp}
-              options={{ title: "회원가입" }}
+              name="test"
+              component={test}
+              options={{ title: "테스트", headerShown: false }}
+            />
+            <Stack.Screen
+              name="KakaoLogin"
+              component={KakaoLogin}
+              options={{ title: "KakaoLogin", headerShown: false }}
             />
           </Stack.Navigator>
         ) : (
